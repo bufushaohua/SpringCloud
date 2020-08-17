@@ -1,0 +1,95 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+  <modelVersion>4.0.0</modelVersion>
+
+  <groupId>org.cyc</groupId>
+  <artifactId>SpringCloud</artifactId>
+  <version>1.0-SNAPSHOT</version>
+  <!--pom总的父工程-->
+  <packaging>pom</packaging>
+
+  <name>Maven</name>
+  <!-- FIXME change it to the project's website -->
+  <url>http://maven.apache.org/</url>
+  <inceptionYear>2001</inceptionYear>
+
+  <distributionManagement>
+    <site>
+      <id>website</id>
+      <url>scp://webhost.company.com/www/website</url>
+    </site>
+  </distributionManagement>
+
+  <!--统一管理jar包版本-->
+  <properties>
+    <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+    <maven.compiler.source>1.8</maven.compiler.source>
+    <maven.compiler.target>1.8</maven.compiler.target>
+    <junit.version>4.12</junit.version>
+    <log4j.version>1.2.17</log4j.version>
+    <lombok.version>1.18.12</lombok.version>
+    <mysql.version>8.0.20</mysql.version>
+    <druid.version>1.1.22</druid.version>
+    <mybatis.spring.boot.version>2.1.2</mybatis.spring.boot.version>
+  </properties>
+
+  <!--子模块继承之后，提供作用：锁定版本+子module不用写groupId和version-->
+  <dependencyManagement>
+    <dependencies>
+      <!--2020搭建Spring Cloud微服务项目，前三个标配-->
+
+      <!--Spring boot 2.2.2-->
+      <dependency>
+        <groupId>org.springframework.boot</groupId>
+        <artifactId>spring-boot-dependencies</artifactId>
+        <version>2.2.2.RELEASE</version>
+        <type>pom</type>
+        <scope>import</scope>
+      </dependency>
+
+      <!--spring cloud Hoxton.SR1-->
+      <dependency>
+        <groupId>org.springframework.cloud</groupId>
+        <artifactId>spring-cloud-dependencies</artifactId>
+        <version>Hoxton.SR1</version>
+        <type>pom</type>
+        <scope>import</scope>
+      </dependency>
+
+      <!--spring Cloud alibaba 2.1.0.RELEASE-->
+      <dependency>
+        <groupId>com.alibaba.cloud</groupId>
+        <artifactId>spring-cloud-alibaba-dependencies</artifactId>
+        <version>2.1.0.RELEASE</version>
+        <type>pom</type>
+        <scope>import</scope>
+      </dependency>
+
+      <!--mysql-->
+      <dependency>
+        <groupId>mysql</groupId>
+        <artifactId>mysql-connector-java</artifactId>
+        <version>${mysql.version}</version>
+      </dependency>
+
+      <!--druid-->
+      <dependency>
+        <groupId>com.alibaba</groupId>
+        <artifactId>druid</artifactId>
+        <version>${druid.version}</version>
+      </dependency>
+
+      <dependency>
+        <groupId>org.mybatis.spring.boot</groupId>
+        <artifactId>mybatis-spring-boot-starter</artifactId>
+        <version>${mybatis.spring.boot.version}</version>
+      </dependency>
+
+
+
+    </dependencies>
+  </dependencyManagement>
+
+</project>
