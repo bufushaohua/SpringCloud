@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF8" ?>  <!--不要写UTF-8，会报1 字节的 UTF-8 序列的字节 1 无效-->
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.cyc.springcloud.dao.PaymentDao">
+    <insert id="create" parameterType="com.cyc.springcloud.entities.Payment" useGeneratedKeys="true" keyProperty="id">
+        insert into t_payment(serial) values(#{serial});
+    </insert>
+
+    <resultMap id="BaseResultMap" type="com.cyc.springcloud.entities.Payment">
+        <id column="id" property="id" jdbcType="BIGINT" />
+        <id column="serial" property="serial" jdbcType="BIGINT" />
+    </resultMap>
+
+    <select id="getPaymentById" parameterType="Long" resultMap="BaseResultMap">
+        select  * from t_payment where id = #{id};
+    </select>
+
+</mapper>
