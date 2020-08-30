@@ -16,5 +16,4 @@
         select  * from t_payment where id = #{id};
     </select>
 
-
 </mapper>

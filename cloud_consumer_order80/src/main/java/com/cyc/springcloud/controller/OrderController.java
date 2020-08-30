@@ -15,7 +15,9 @@ import javax.annotation.Resource;
 @Slf4j
 public class OrderController {
 
-    public static final String PAYMENT_URL = "http://localhost:8001";
+    //不需要写死
+    //使用ribbon实现负载均衡的时候，服务名称不能用下划线，换成中划线
+    public static final String PAYMENT_URL = "http://cloud-payment-service";
 
     @Resource
     private RestTemplate restTemplate;

@@ -12,6 +12,22 @@
     <artifactId>cloud_consumer_order80</artifactId>
 
     <dependencies>
+        <!--eureka-client-->
+        <dependency>
+            <groupId>org.springframework.cloud</groupId>
+            <artifactId>spring-cloud-starter-netflix-eureka-client</artifactId>
+            <version>2.2.3.RELEASE</version>
+        </dependency>
+
+        <!--引入自己定义的api通用包，可以使用payment支付Entity
+            引用之前mvn:clean  再mvn:install
+        -->
+        <dependency>
+            <!--组名不是com.cyc.springcloud-->
+            <groupId>org.cyc</groupId>
+            <artifactId>cloud_api_commons</artifactId>
+            <version>${project.version}</version>
+        </dependency>
 
         <dependency>
             <groupId>org.springframework.boot</groupId>

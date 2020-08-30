@@ -20,10 +20,10 @@ public class PaymentController {
     private String serverPort;
 
     @Resource
-    private DiscoveryClient discoveryClient;
+    public PaymentService paymentService;
 
     @Resource
-    public PaymentService paymentService;
+    private DiscoveryClient discoveryClient;
 
     //浏览器对post请求不支持，可以使用postman软件进行测试
     @PostMapping(value = "/payment/create")
@@ -58,8 +58,8 @@ public class PaymentController {
         for (String service : services) {
             log.info("******Services:" + service);
         }
-        List<ServiceInstance> instances = discoveryClient.getInstances("CLOUD-PAYMENT-SERVICE");
-        //打印CLOUD_PAYMENT_SERVICE下面所对应的多个实例信息
+        //服务名不区分大小写，但不能写下划线
+        List<ServiceInstance> instances = discoveryClient.getInstances("CLOUD-PAYMENT-service");
         for (ServiceInstance instance : instances) {
             log.info(instance.getServiceId()+"\t"+instance.getHost()+"\t"+instance.getPort()+"\t"+instance.getUri());
         }

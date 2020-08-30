@@ -10,6 +10,10 @@
   <modules>
     <module>cloud_provider-payment8001</module>
     <module>cloud_consumer_order80</module>
+      <module>cloud_api_commons</module>
+    <module>cloud-eureka-server7001</module>
+    <module>cloud-eureka-server7002</module>
+      <module>cloud_provider-payment8002</module>
   </modules>
   <!--pom总的父工程-->
   <packaging>pom</packaging>

@@ -9,15 +9,25 @@
     </parent>
     <modelVersion>4.0.0</modelVersion>
 
-    <artifactId>cloud_provider-payment8001</artifactId>
+    <artifactId>cloud-eureka-server7002</artifactId>
 
     <dependencies>
 
-        <!--eureka-client-->
+        <!-- https://mvnrepository.com/artifact/org.springframework.cloud/spring-cloud-starter-netflix-eureka-client -->
         <dependency>
             <groupId>org.springframework.cloud</groupId>
-            <artifactId>spring-cloud-starter-netflix-eureka-client</artifactId>
+            <artifactId>spring-cloud-starter-netflix-eureka-server</artifactId>
             <version>2.2.3.RELEASE</version>
+        </dependency>
+
+        <!--引入自己定义的api通用包，可以使用payment支付Entity
+               引用之前mvn:clean  再mvn:install
+           -->
+        <dependency>
+            <!--组名不是com.cyc.springcloud-->
+            <groupId>org.cyc</groupId>
+            <artifactId>cloud_api_commons</artifactId>
+            <version>${project.version}</version>
         </dependency>
 
         <dependency>
@@ -31,30 +41,14 @@
         </dependency>
 
         <dependency>
-            <groupId>org.mybatis.spring.boot</groupId>
-            <artifactId>mybatis-spring-boot-starter</artifactId>
-        </dependency>
-
-        <dependency>
             <groupId>org.projectlombok</groupId>
             <artifactId>lombok</artifactId>
             <optional>true</optional>
         </dependency>
 
         <dependency>
-            <groupId>com.alibaba</groupId>
-            <artifactId>druid-spring-boot-starter</artifactId>
-            <version>1.1.20</version>
-        </dependency>
-
-        <dependency>
-            <groupId>mysql</groupId>
-            <artifactId>mysql-connector-java</artifactId>
-        </dependency>
-
-        <dependency>
             <groupId>org.springframework.boot</groupId>
-            <artifactId>spring-boot-starter-jdbc</artifactId>
+            <artifactId>spring-boot-starter-test</artifactId>
         </dependency>
 
     </dependencies>
